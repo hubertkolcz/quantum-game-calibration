@@ -1,23 +1,23 @@
-Projekt składa się z folderów:
-- Rezultaty: wykresy i arkusze z wynikami kalibracji sieci.
-- Kod: modele sieci neuronowe, solwery numeryczne - w tym PINN.
-- Inne: dokumenty techniczne.
+The project consists of the following folders:
+- Results: charts and spreadsheets with network calibration results.
+- Code: neural network models, numerical solvers—including PINN.
+- Other: technical documents.
 
-Dokładny opis zawartości znajduje się w pracy magisterskiej, w części Załączniki.
+A detailed description of the contents can be found in the master's thesis, in the Attachments section.
 
-Aby uruchomić symulator BQC, którego wynikiem działania są wykresy i wyniki symulacji w plikach xls, należy zainstalować symulator SquidASM oraz NetSquid na środowisku Unixowym lub WSL, zgodnie z instrukcjami:
+To run the BQC simulator, which outputs charts and simulation results in xls files, you need to install the SquidASM and NetSquid simulators on a Unix or WSL environment, following the instructions:
 - NetSquid: https://netsquid.org/
 - SquidASM: https://squidasm.readthedocs.io/en/latest/installation.html
 
-Po zainstalowaniu obu pakietów, należy uruchomić poniższe komendy:
-- cd \Dodatek\Kod\Serwer kwantowy\BQC - NetSquid
+After installing both packages, run the following commands:
+- cd Code/Quantum Server/BQC - NetSquid
 - python bqc.py
 
-Wynikiem działania skryptu powinien być zestaw pomiarów. Ze względu na wartość ustawioną domyślnie, symulacja może zająć kilka godzin. Aby zmniejszyć czas potrzebny na realizację pomiarów (ale też ich dokładność), należy zmienić wartość num_times = 1000 w linii 241 na np. 10.
+The script should produce a set of measurements. Due to the default value, the simulation may take several hours. To reduce the time required for measurements (at the cost of accuracy), change the value num_times = 1000 in line 241 to e.g. 10.
 
-Wygenerowane wcześniej wyniki eksperymentów dostępne są w folderze głównym oraz "BQC/graphs".
+Previously generated experiment results are available in the main folder and in "Code/Quantum Server/BQC - NetSquid/plots".
 
 
-W celu uruchomienia sieci qGAN, należy przejść do folderu "Dodatek\Kod\Klient kwantowy\qGAN - Classifier". Uruchomienie znajdujących się tam modeli wymaga zainstalowania pakietów, które zostały wskazane w pierwszej komórce programu.
+To run the qGAN network, go to the folder "Code/Quantum Client/qGAN - Classifier". Running the models there requires installing the packages listed in the first cell of the program.
 
-Kod AMD i pozostałych programów znajdujących się w folderze Dodatek\Kod\ można uruchomić analogicznie do powyższej instrukcji.
+The AMD code and other programs in the Code/ folder can be run analogously to the above instructions.
