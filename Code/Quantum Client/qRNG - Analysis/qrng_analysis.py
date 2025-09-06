@@ -262,6 +262,27 @@ def plot_distributions(calib: pd.DataFrame, metrics: pd.DataFrame, out_dir: str)
     plt.savefig(os.path.join(out_dir, "crosstalk_risk_per_qubit.png"))
     plt.close()
 
+    # Correlation: crosstalk risk vs min-entropy
+    try:
+        from scipy.stats import pearsonr, spearmanr  # type: ignore
+        x = metrics["crosstalk_risk"].astype(float)
+        y = metrics["min_entropy_est"].astype(float)
+        pr, pp = pearsonr(x, y)
+        sr, sp = spearmanr(x, y)
+        plt.figure(figsize=(6,5))
+        plt.scatter(x, y, s=15, alpha=0.7)
+        plt.xlabel("crosstalk_risk (heuristic)")
+        plt.ylabel("min_entropy_est")
+        plt.title(f"Correlation (Pearson {pr:.3f}, p={pp:.3g}; Spearman {sr:.3f}, p={sp:.3g})")
+        plt.tight_layout()
+        plt.savefig(os.path.join(out_dir, "crosstalk_vs_minentropy.png"))
+        plt.close()
+        with open(os.path.join(out_dir, "correlation.txt"), "w", encoding="utf-8") as f:
+            f.write(f"Pearson r={pr:.6f}, p={pp:.6g}\nSpearman r={sr:.6f}, p={sp:.6g}\n")
+    except Exception:
+        # scipy not available; skip correlation
+        pass
+
     # Optional: coupling graph visualization if networkx is available
     try:
         import networkx as nx  # type: ignore

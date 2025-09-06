@@ -1,0 +1,9 @@
+# Superconducting-like config (example) derived from IBM Sherbrooke medians
+# Note: This is a placeholder to be adapted to SquidASM StackNetworkConfig expectations.
+# Use with care and adjust to match GenericQDeviceConfig parameters in your environment.
+
+superconducting:
+  init_time: 1000        # ns (heuristic)
+  measure_time: 1244.4   # ns (from ibm_mapping summary)
+  single_qubit_gate_depolar_prob: 0.0002147
+  two_qubit_gate_depolar_prob: 0.007289

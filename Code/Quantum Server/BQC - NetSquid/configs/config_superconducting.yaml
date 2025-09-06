@@ -1,0 +1,26 @@
+stacks:
+  - name: client
+    qdevice_typ: generic
+    qdevice_cfg:
+      num_qubits: 2
+      T1: 1e99
+      T2: 1e9
+      init_time: 1000       # ns, from mapper heuristic
+      single_qubit_gate_time: 50
+      two_qubit_gate_time: 300
+      measure_time: 1244.4  # ns, from IBM median
+      single_qubit_gate_depolar_prob: 0.000215
+      two_qubit_gate_depolar_prob: 0.007289
+  - name: server
+    qdevice_typ: generic
+    qdevice_cfg: *client
+links:
+  - stack1: client
+    stack2: server
+    typ: heralded
+    cfg:
+      t_cycle: 1000
+      p_S: 0.5
+      p_loss_init: 0.0
+      p_loss_length: 0.0
+      p_depol: 0.0
