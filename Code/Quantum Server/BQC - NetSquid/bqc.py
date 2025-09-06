@@ -380,6 +380,8 @@ def experiment(stack, cfg, parameter, parameters_set, label, num_times):
 
 def plot_results(parameters_set, avg_succ_rate, avg_exec_per_sec, avg_combined, label, num_times):
     """Plot the results of the experiments."""
+    # Ensure graphs directory exists
+    os.makedirs('./graphs', exist_ok=True)
     fig, ax = pyplot.subplots(1, 3, figsize=(45, 15))
 
     ax[0].plot(parameters_set, avg_succ_rate)
@@ -408,7 +410,8 @@ def save_results(logger, stack, label, num_times):
 
 def main():
     set_qstate_formalism(QFormalism.DM)
-    num_times = 1000
+    # Allow overriding iterations via env var for quick tests
+    num_times = int(os.environ.get("BQC_NUM_TIMES", "1000"))
     cfg_network_trapped_ions, cfg_network_colors_centers, ions_stack, colors_stack = load_configurations()
     parameters = setup_parameter_ranges()
 

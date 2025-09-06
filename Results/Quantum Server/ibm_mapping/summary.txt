@@ -1,0 +1,7 @@
+Suggested global parameters (medians):
+  single_qubit_gate_depolar_prob ≈ 0.0002147
+  two_qubit_gate_depolar_prob ≈ 0.007289
+  measure_time ≈ 1244.4 ns
+  init_time ≈ 1000 ns (fixed heuristic)
+
+Note: map these into config_trapped_ions.yaml or a new superconducting config if desired.
