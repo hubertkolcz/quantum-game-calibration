@@ -3,3 +3,6 @@ Modele_uczenia_maszynowego_dla_wybranych_zastosowań_kwantowych.pdf
 .wslvenv
 .venv
 squidasm/
+Results/article_coverage.md
+Results/article_gap_analysis.md
+Results/validation_report.md
