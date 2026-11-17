@@ -20,6 +20,8 @@ from squidasm.sim.stack.common import LogManager
 from squidasm.sim.stack.csocket import ClassicalSocket
 from squidasm.sim.stack.program import Program, ProgramContext, ProgramMeta
 
+# Adapted from the SquidASM BQC example (examples/applications/bqc),
+# Copyright (c) 2021 QuTech, MIT License.
 # Example Blind Quantum Computation application.
 # See the README.md for the computation that is performed.
 
